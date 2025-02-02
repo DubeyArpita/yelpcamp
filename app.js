@@ -24,7 +24,7 @@ const reviewRoutes = require('./routes/reviews.js')
 const MongoDBStore = require("connect-mongo");
 
 
-const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = 'mongodb+srv://arpitamisc123:Mm7XWDZOJizcFCd5@yelp-camp.pc1bx.mongodb.net/?retryWrites=true&w=majority&appName=yelp-camp';
 //mongodb://127.0.0.1:27017/yelp-camp
 
 mongoose.connect(dbUrl);
@@ -44,7 +44,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 const store = MongoDBStore.create({
-    mongoUrl: "mongodb://127.0.0.1:27017/yelp-camp",  // Use correct MongoDB URI
+    mongoUrl: "mongodb+srv://arpitamisc123:Mm7XWDZOJizcFCd5@yelp-camp.pc1bx.mongodb.net/?retryWrites=true&w=majority&appName=yelp-camp",  // Use correct MongoDB URI
     collectionName: "sessions",
     touchAfter: 24 * 3600,  // Reduce write frequency (optional)
 });
