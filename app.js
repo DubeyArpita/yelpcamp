@@ -27,12 +27,18 @@ const MongoDBStore = require("connect-mongo");
 const dbUrl = 'mongodb+srv://arpitamisc123:Mm7XWDZOJizcFCd5@yelp-camp.pc1bx.mongodb.net/?retryWrites=true&w=majority&appName=yelp-camp';
 //mongodb://127.0.0.1:27017/yelp-camp
 
-mongoose.connect(dbUrl, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true, 
-    ssl: true 
+// mongoose.connect(dbUrl, { 
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true, 
+//     ssl: true 
+// });
+mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    ssl: true
 });
-
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -103,6 +109,10 @@ app.use((err,req,res,next) => {
     res.status(statusCode).render('error',{err});
     
 })
-app.listen(3000, () => {
-    console.log("Serving on port 3000")
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`)
 })
+// app.listen(3000, () => {
+//     console.log("Serving on port 3000")
+// })
