@@ -34,9 +34,7 @@ const dbUrl = 'mongodb+srv://arpitamisc123:Mm7XWDZOJizcFCd5@yelp-camp.pc1bx.mong
 // });
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
-    useCreateIndex: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
     ssl: true
 });
 
